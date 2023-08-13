@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 350px;
+  background-color: #252323e1;
+  padding: 20px;
+
+  border-radius: 20px;
+  position: relative;
+}
+.text_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.flex_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: row;
+  width: 10%;
+  height: 40%;
+  gap: 6px;
+}
+
+.btn_card_t {
+  color: #9c0000;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn_card_c {
+  color: royalblue;
+  font-size: 20px;
+  cursor: pointer;
+}
+.card_email {
+  color: rgba(119, 115, 115, 0.89);
+  margin-bottom: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .card{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 550px;
+        background-color: #252323e1;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
+    }
+}

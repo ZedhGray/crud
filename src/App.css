@@ -1,0 +1,72 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 10px;
+
+  color: white;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.897);
+  border-radius: 25px;
+}
+
+.container_cards {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (min-width: 992px) {
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+
+    width: 100vw;
+    height: 100vh;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 50vw;
+    height: 100vh;
+  }
+  .container_cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    width: 50vw;
+    height: 100vh;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    overflow-y: scroll;
+  }
+  .container_cards::-webkit-scrollbar {
+    width: 10px;
+    background: #3a39399c;
+    border-radius: 25px;
+  }
+  
+}
