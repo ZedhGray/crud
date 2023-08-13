@@ -1,11 +1,22 @@
 import { useForm } from 'react-hook-form'
 import './FormUsers.css'
+import { useEffect } from 'react'
 
-const FormUsers = ({ createNewUser }) => {
+const FormUsers = ({ createNewUser, updateInfo, updateUserById, setUpdateInfo }) => {
   const { register, reset, handleSubmit } = useForm()
 
+  useEffect(() => {
+    reset(updateInfo)
+  }, [updateInfo])
+
   const submit = (data) => {
-    createNewUser('/users', data)
+    if (updateInfo) {
+      //update
+      updateUserById('/users', updateInfo.id, data)
+      setUpdateInfo()
+    } else {
+      createNewUser('/users', data)
+    }
     reset({
       email: '',
       password: '',
@@ -78,7 +89,7 @@ const FormUsers = ({ createNewUser }) => {
         />
         <span>Birthday</span>
       </label>
-      <button className="submit">Create</button>
+      <button className="submit">{updateInfo ? 'Update' : 'Create'}</button>
     </form>
   )
 }

@@ -1,10 +1,14 @@
 import './App.css'
 import useFetch from './hooks/useFetch'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import FormUsers from './components/FormUsers'
 import UserCard from './components/UserCard'
 
 function App() {
+
+  
+  const [updateInfo, setUpdateInfo] = useState()
+
   const baseUrl = 'https://users-crud.academlo.tech/'
   const [users, getAllUsers, createNewUser, deleteUserById, updateUserById] =
     useFetch(baseUrl)
@@ -13,14 +17,12 @@ function App() {
     getAllUsers('/users')
   }, [])
 
-  console.log(users)
-
   return (
     <div className="App">
       <header className="header">
         <h1>CRUD</h1>
         <section>
-          <FormUsers createNewUser={createNewUser} />
+          <FormUsers createNewUser={createNewUser} updateInfo={updateInfo} updateUserById={updateUserById} setUpdateInfo={setUpdateInfo}/>
         </section>
       </header>
 
@@ -31,7 +33,7 @@ function App() {
               key={user._id}
               user={user}
               deleteUserById={deleteUserById}
-              updateUserById={updateUserById}
+              setUpdateInfo={setUpdateInfo}
             />
           ))}
         </section>

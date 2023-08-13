@@ -1,11 +1,12 @@
 import './UserCard.css'
 
-const UserCard = ({ user, deleteUserById, updateUserById }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo }) => {
+
   const hadleDeleteUser = () => {
     deleteUserById('/users', user.id)
   }
-  const hadleUpdateUser = () => {
-    updateUserById('/users', user.id)
+  const hadleEditUser = () => {
+    setUpdateInfo(user)
   }
 
   return (
@@ -16,7 +17,9 @@ const UserCard = ({ user, deleteUserById, updateUserById }) => {
         </h2>
         <ul>
           <li className="card_email">
-            <span><i className='bx bx-envelope' ></i></span>
+            <span>
+              <i className="bx bx-envelope"></i>
+            </span>
             <span> {user.email}</span>
           </li>
           <li>
@@ -32,7 +35,7 @@ const UserCard = ({ user, deleteUserById, updateUserById }) => {
         <button onClick={hadleDeleteUser}>
           <i className="bx bx-trash btn_card_t"></i>
         </button>
-        <button onClick={hadleUpdateUser}>
+        <button onClick={hadleEditUser}>
           <i className="bx bx-edit btn_card_c"></i>
         </button>
       </div>
